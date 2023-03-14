@@ -1,19 +1,5 @@
 console.log("Hello World!");
 
-/** THIS CODE WORKED
- * let getComputerChoice = Math.random() * 10 + 1;
-let computerChoice;
-
-if (getComputerChoice < 4){
-   computerChoice = 'scissors';
-} else if (getComputerChoice < 7) {
-   computerChoice = 'paper';
-} else {
-   computerChoice = 'rock';
-}
-console.log(computerChoice);
-**/
-
 function computerChoiceF() {
    let getComputerChoice = Math.random() * 10 + 1;
    let computerChoice = 'rock';
@@ -34,10 +20,10 @@ function computerChoiceF() {
    }
 }
 
-/** 
-let playerInput = prompt('Choose your weapon');
-let playerChoice = playerInput.toLowerCase();
-**/
+ 
+//let playerInput = prompt('Choose your weapon');
+//let playerChoice = playerInput.toLowerCase();
+
 
 let playerScore = 0;
 let computerScore = 0;
@@ -72,8 +58,8 @@ function playRound(playerChoice) {
       return "you suck, paper vs paper = tie; do better"
    }
    else {
-      //return "I BEG YOU ENTER A SUITABLE WEAPON, PLEASE. PLEASE";
-      return console.log(playerChoice);
+      return "I BEG YOU ENTER A SUITABLE WEAPON, PLEASE. PLEASE";
+      //return console.log(playerChoice);
    }
 }
 
@@ -81,8 +67,15 @@ function playRound(playerChoice) {
 
 function game() {
    for (i = 1; i <= 5; i++) {
-      playerChoice = prompt('metele ca;a chaval');
+      playerChoice = prompt('Choose a weapon');
       console.log(playRound(playerChoice));
+   }
+   if (i = 6) {
+      console.log(`Player score ${playerScore}, computer score ${computerScore}.`);
+      return playerScore = 0, computerScore = 0;
+   }
+   else {
+      return
    }
 }
 
