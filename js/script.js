@@ -63,7 +63,7 @@ function playRound(playerChoice) {
       roundResult.textContent = roundResultText;
    }
    else {
-      return roundResultText="I BEG YOU ENTER A SUITABLE WEAPON, PLEASE. PLEASE",
+      return roundResultText="SLOWER PLEASE I CAN'T PROCESS THIS MUCH INFORMATION",
       roundResult.textContent = roundResultText;
    }
    roundResult.textContent = roundResultText;
@@ -92,8 +92,15 @@ buttons.forEach((button) => {
    button.addEventListener('click', function(e) {
       const buttonClass = this.classList.value;
       let playerChoice = buttonClass;
-      console.log(playerChoice);
-      console.log(playRound(playerChoice));
+      playRound(playerChoice);
+      button.classList.toggle('playing');
       game(playerScore, computerScore);
    });
 });
+
+function removeTransition(e) {
+   if(e.propertyName !== 'transform') return;
+   this.classList.remove('playing');
+}
+
+buttons.forEach(button => button.addEventListener('transitionend', removeTransition));

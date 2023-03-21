@@ -1,0 +1,53 @@
+body, html {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+} 
+
+
+.mainContainer {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+     width: 1000px;
+}
+
+.buttonsDiv {
+    display:flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    padding: 50px;
+    border: 2px solid blue;
+    transition: all 0.7s;
+}
+
+
+.playing {
+    transform:scale(1.4);
+    border-color: rgb(128, 34, 151);
+}
+
+
+button:hover {
+    background-color: yellow;
+}
+
+
+#roundContainer {
+    display:flex;
+    justify-content: center;
+    min-height: 50px;
+}
+
+#resultContainer {
+    display:flex;
+    justify-content:center;
+    min-height: 50px;
+}
