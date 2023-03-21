@@ -23,52 +23,63 @@ let computerScore = 0;
 
 function playRound(playerChoice) {
    let computerChoice = computerChoiceF();
+   const roundResult = document.querySelector('.roundResult');
+   let roundResultText = '';
+
    if ((playerChoice == 'scissors') && (computerChoice == 'rock')) {
-      return computerScore += 1, "You lost, rock beats scissors"
+      return computerScore += 1, roundResultText="You lost, rock beats scissors",
+      roundResult.textContent = roundResultText;
    }
    else if ((playerChoice == 'rock') && (computerChoice == 'paper')) {
-      return computerScore += 1, "You lose fool, paper beats rock!"
+      return computerScore += 1, roundResultText="You lose fool, paper beats rock!",
+      roundResult.textContent = roundResultText;
    }
    else if ((playerChoice == 'paper') && (computerChoice == 'scissors')) {
-      return computerScore += 1, "You lost!!!!! SCISSORS BEAT PAPER DON'T YOU REMEMBER?"
+      return computerScore += 1, roundResultText="You lost!!!!! SCISSORS BEAT PAPER DON'T YOU REMEMBER?",
+      roundResult.textContent = roundResultText;
    }
    else if ((playerChoice == 'scissors') && (computerChoice == 'paper')) {
-      return playerScore += 1, "You won, unbelievable... scissors > paper"
+      return playerScore += 1, roundResultText="You won, unbelievable... scissors > paper",
+      roundResult.textContent = roundResultText;
    }
    else if ((playerChoice == 'rock') && (computerChoice == 'scissors')) {
-      return playerScore += 1, "You're lucky, rock beats scissors this time"
+      return playerScore += 1, roundResultText="You're lucky, rock beats scissors this time",
+      roundResult.textContent = roundResultText;
    }
    else if ((playerChoice == 'paper') && (computerChoice == 'rock')) {
-      return playerScore += 1, "You won lol... p>r"
+      return playerScore += 1, roundResultText="You won lol... p>r",
+      roundResult.textContent = roundResultText;
    }
    else if ((playerChoice == 'scissors' && computerChoice == 'scissors')) {
-      return "Scissors clash and both enjoy it, but none wins"
+      return roundResultText="Scissors clash and both enjoy it, but none wins",
+      roundResult.textContent = roundResultText;
    }
    else if ((playerChoice == 'rock') && (computerChoice == 'rock')) {
-      return "the rocks break when they collide with the strength of a thousand horses. Both get destroyed, and both lose, that's a tie afterall"
+      return roundResultText="the rocks break when they collide with the strength of a thousand horses. Both get destroyed, and both lose, that's a tie afterall",
+      roundResult.textContent = roundResultText;
    }
    else if ((playerChoice == 'paper') && (computerChoice == 'paper')) {
-      return "you suck, paper vs paper = tie; do better"
+      return roundResultText="you suck, paper vs paper = tie; do better",
+      roundResult.textContent = roundResultText;
    }
    else {
-      console.log(playerChoice)
-      return "I BEG YOU ENTER A SUITABLE WEAPON, PLEASE. PLEASE";
+      return roundResultText="I BEG YOU ENTER A SUITABLE WEAPON, PLEASE. PLEASE",
+      roundResult.textContent = roundResultText;
    }
+   roundResult.textContent = roundResultText;
    
 }
 
 function game() {
-   const resultContainer = document.querySelector('#resultContainer')
    const resultTextCont = document.querySelector('.resultText')
    let resultText='';
 
    if(playerScore == 5) {
-      return playerScore = 0, computerScore = 0, resultText = "YOU WIN, UNBELIVABLE",
-      resultTextCont.textContent = resultText;
+      return resultText = `YOU WIN, UNBELIVABLE ${playerScore}-${computerScore}`, resultTextCont.textContent = resultText, playerScore = 0, computerScore = 0;
    }
    else if(computerScore == 5) {
-      return playerScore = 0, computerScore =0, resultText = "YOU'RE THRASH",
-      resultTextCont.textContent = resultText;
+      return resultText = `YOU'RE THRASH ${playerScore}-${computerScore}`, resultTextCont.textContent = resultText,
+      playerScore = 0, computerScore = 0;
    }
    else {
       resultText = `Your score is ${playerScore}, comptuer score is ${computerScore}`
@@ -86,16 +97,3 @@ buttons.forEach((button) => {
       game(playerScore, computerScore);
    });
 });
-
-
-
-// function game() {
-//    if(playerScore == 5) {
-//       return playerScore=0, computerScore=0, "You win!";
-//    }
-//    else if(computerScore == 5) {
-//       return playerScore= 0, computerScore=0, "You lose!";
-//    }
-//    else {
-//    }
-// }
