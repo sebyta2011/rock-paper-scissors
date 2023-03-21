@@ -18,11 +18,6 @@ function computerChoiceF() {
    }
 }
 
- 
-// let playerInput = prompt('Choose your weapon');
-// let playerChoice = playerInput.toLowerCase();
-
-
 let playerScore = 0;
 let computerScore = 0;
 
@@ -62,44 +57,45 @@ function playRound(playerChoice) {
    
 }
 
+function game() {
+   const resultContainer = document.querySelector('#resultContainer')
+   const resultTextCont = document.querySelector('.resultText')
+   let resultText='';
+
+   if(playerScore == 5) {
+      return playerScore = 0, computerScore = 0, resultText = "YOU WIN, UNBELIVABLE",
+      resultTextCont.textContent = resultText;
+   }
+   else if(computerScore == 5) {
+      return playerScore = 0, computerScore =0, resultText = "YOU'RE THRASH",
+      resultTextCont.textContent = resultText;
+   }
+   else {
+      resultText = `Your score is ${playerScore}, comptuer score is ${computerScore}`
+   }
+   resultTextCont.textContent = resultText;
+}
+
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
    button.addEventListener('click', function(e) {
       const buttonClass = this.classList.value;
-      //  election = document.querySelector(`button[class="${buttonClass}"]`)
       let playerChoice = buttonClass;
       console.log(playerChoice);
       console.log(playRound(playerChoice));
-      console.log(game(playerScore, computerScore))
+      game(playerScore, computerScore);
    });
 });
 
-function game() {
-   if(playerScore == 5) {
-      return playerScore=0, computerScore=0, "You win!";
-   }
-   else if(computerScore == 5) {
-      return playerScore= 0, computerScore=0, "You lose!";
-   }
-   else {
-
-   }
-}
 
 
-
-
-
-// // function game() {
-// //    for (i = 1; i <= 5; i++) {
-// //       playerChoice = prompt('Choose a weapon');
-// //       console.log(playRound(playerChoice));
-// //    }
-// //    if (i = 6) {
-// //       console.log(`Player score ${playerScore}, computer score ${computerScore}.`);
-// //       return playerScore = 0, computerScore = 0;
-// //    }
-// //    else {
-// //       return
-// //    }
-// // }
+// function game() {
+//    if(playerScore == 5) {
+//       return playerScore=0, computerScore=0, "You win!";
+//    }
+//    else if(computerScore == 5) {
+//       return playerScore= 0, computerScore=0, "You lose!";
+//    }
+//    else {
+//    }
+// }
